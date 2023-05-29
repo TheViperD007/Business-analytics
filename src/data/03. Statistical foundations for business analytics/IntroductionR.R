@@ -323,21 +323,25 @@ summary(mpg)
 
 
 # Creating a DataFrame
-
 WEIGHT <- c(60, 82, 57, 90, 95, 72,50)
 HEIGHT <- c(1.75, 1.80, 1.65, 1.90, 1.74, 1.91,1.66)
+
 # The body mass index (BMI) is computed as follows:
 BMI <- WEIGHT/HEIGHT^2
 BMI
+
 # Tables
 Tab1=cbind(WEIGHT,HEIGHT,BMI)
 Tab1
 rownames(Tab1)<-c('Carlos','Pedro','Maria','Claudia','Luis','Manuel','Percy')
 Tab1
+
 # DataFrame
 Tab1=data.frame(Tab1)
+Tab1$BMI
+
 # if-else Condition
-Tab1$REPORT<-ifelse(Tab1$BMI<25,'Bueno','Malo')
+Tab1$REPORT<-ifelse(Tab1$BMI<23.1,'Saludable','No saludable')
 Tab1
 Tab1$CLASSIFICATION <- ifelse(Tab1$BMI < 18.5 , "Bajo Peso", 
                               ifelse(Tab1$BMI < 24.9, "Normal", 
@@ -348,11 +352,11 @@ Tab1
 plot(Tab1$WEIGHT, Tab1$HEIGHT)
 
 plot(Tab1$WEIGHT, Tab1$HEIGHT,
-     pch=16,
-     col='blue',
-     xlab='Peso',
-     ylab='Altura',
-     main='Figura 1')
+     pch = 24,
+     col = 'blue',
+     xlab = 'Peso',
+     ylab = 'Altura',
+     main = 'Figura 1')
 
 # adding lines
 abline(v=80,col="red", lty=2)
